@@ -119,13 +119,17 @@ StaticServlet.prototype.handleRequest = function (req, res) {
 }
 
 StaticServlet.prototype.findAndSendTarget = function(req, path, res, self) {
-    fs.stat(path, function (err, stat) {
+util.puts(path);
+	fs.stat(path, function (err, stat) {
         if (err && path.indexOf('app/') >= 0)
             return self.sendMissing_(req, res, path);
         else if (err) {
             if (path.indexOf('.json') == -1) {
                 return self.findAndSendTarget(req, path + ".json", res, self);
+            } else if (!fs.fileExistsSync(path + ".json") && path.indexOf('/data/') != -1) {
+					self.sendMissing_(req, res, path);
             }
+			
             return self.sendDefault_(req, res);
         }
 
@@ -141,6 +145,9 @@ StaticServlet.prototype.findAndSendTarget = function(req, path, res, self) {
                 return self.sendDefault_(req, res);
             }
             return self.sendAllJsonFilesAppended_(req, res, path);
+        }
+		if (!fs.fileExistsSync(path)) {
+            return self.sendMissing_(req, path, res);
         }
         return self.sendFile_(req, res, path);
     });
