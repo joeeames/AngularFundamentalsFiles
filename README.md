@@ -1,4 +1,4 @@
 AngularFundamentalsFiles
 ========================
 
-A few files from my angular fundamentals course
+The course is currently up to Date
