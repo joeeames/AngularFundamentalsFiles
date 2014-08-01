@@ -1,0 +1,28 @@
+<div class="container" >
+    <h1 ng-hide="editingSession">New Session</h1>
+    <h1 ng-show="editingSession">Edit Session</h1>
+    <hr/>
+    <form name="editSessionForm">
+        <fieldset>
+        <label for="sessionName">Session Name:</label>
+        <input id="sessionName" type="text" focus required ng-model="session.name">
+        <label for="sessionDuration">Duration:</label>
+        <select id="sessionDuration" ng-model="session.duration" ng-Required>
+            <option value="1">Half Hour</option>
+            <option value="2">Hour</option>
+            <option value="3">Half Day</option>
+            <option value="4">Full Day</option>
+        </select>
+        <label for="sessionDuration">Level:</label>
+        <select id="sessionDuration" ng-model="session.level" ng-Required>
+            <option value="introductory">Introductory</option>
+            <option value="intermediate">Intermediate</option>
+            <option value="advanced">Advanced</option>
+        </select>
+        <label for="sessionAbstract">Abstract</label>
+        <textarea rows="5" id="sessionAbstract" class="field span8" required ng-model="session.abstract" ></textarea>
+        </fieldset>
+        <button type="submit" class="btn btn-primary" ng-click="saveSession(session, editSessionForm)">Save</button>
+
+    </form>
+</div>

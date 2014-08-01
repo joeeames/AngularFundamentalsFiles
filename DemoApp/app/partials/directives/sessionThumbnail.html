@@ -1,0 +1,8 @@
+<div class="well span9 sessionThumbnail">
+    <h4 class="well-title">{{session.name}} <button type="button" class="btn editSessionBtn" ng-show="editable" ng-click="edit(session)">Edit</button></h4>
+    <h6 class="sessionCreator"><a href="/viewProfile/{{session.creator}}">{{session.creatorName}}</a></h6>
+    <span>Duration: {{session.duration | durations}}</span><br />
+    <span>Level: {{session.level}}</span>
+
+    <p>{{session.abstract}}</p>
+</div>

@@ -1,0 +1,29 @@
+<div id="me">
+    <event-details event="event" editable="allowUserToEditEvent()" edit="editEvent(event)"></event-details>
+
+    <button type="button" style="margin-top:25px" class="btn btn-primary" ng-click="createNewSession(event.id)">Create New Session</button>
+
+    <hr/>
+
+    <h3>Sessions</h3>
+    Order By:
+    <select ng-model="sortorder" class="input-small">
+        <option selected value="name">Name</option>
+        <option value="-upVoteCount">Votes</option>
+    </select>
+    Show:
+    <select ng-model="query" class="input-medium">
+        <option selected value="">All</option>
+        <option value="introductory">Introductory</option>
+        <option value="intermediate">Intermediate</option>
+        <option value="advanced">Advanced</option>
+    </select>
+    <ul class="thumbnails">
+        <li ng-repeat="session in event.sessions | filter:query | orderBy:sortorder" class="span11">
+            <div class="row no-select">
+                <upvote count="{{session.upVoteCount}}" upvote="upVoteSession(session)" downvote="downVoteSession(session)"></upvote>
+                <session-thumbnail session="session" editable="allowUserToEditSession(session)" edit="editSession(session)"></session-thumbnail>
+            </div>
+        </li>
+    </ul>
+</div>
