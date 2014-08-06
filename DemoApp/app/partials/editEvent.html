@@ -1,0 +1,37 @@
+<div class="container" >
+    <h1 ng-hide="editingEvent">New Event</h1>
+    <h1 ng-show="editingEvent">Edit Event</h1>
+    <hr/>
+
+    <form name="editEventForm">
+        <fieldset>
+            <label for="eventName">Event Name:</label>
+            <input id="eventName" type="text" required placeholder="Name of your event..." ng-model="event.name" focus />
+            <label for="eventDate">Date:</label>
+            <div style="position:relative">
+                <input id="eventDate" type="text" required placeholder="format (mm/dd/yyyy)..." ng-model="event.date" ng-focus="dateFocus()" ng-blur="dateBlur()"/>
+                <div class="date-picker" ng-show="showDatePicker"><date-picker set-date="setDateFromPicker" ></date-picker></div>
+            </div>
+
+            <label for="eventTime">Time:</label>
+            <input id="eventTime" type="text" required placeholder="start and end time..." ng-model="event.time" />
+            <label for="eventLocation">Location:</label>
+            <input id="eventLocation" type="text" required placeholder="Address of event..." ng-model="event.location.address" />
+            <br />
+            <input id="eventCity" type="text" required class="input-small" placeholder="City..." ng-model="event.location.city" />
+            <input id="eventProvince" type="text" required class="input-small" placeholder="Province..." ng-model="event.location.province" />
+
+            <label for="eventImageUrl">Image:</label>
+            <input id="eventImageUrl" type="url" required class="input-xlarge" placeholder="Url of image..." ng-model="event.imageUrl" />
+
+        </fieldset>
+
+        <img data-ng-src="{{event.imageUrl}}" src="" />
+        <br />
+        <br />
+
+        <button type="submit" class="btn btn-primary" ng-click="saveEvent(event, editEventForm)">Save</button>
+        <button type="button" class="btn btn-default" ng-click="cancelEdit()">Cancel</button>
+
+    </form>
+</div>

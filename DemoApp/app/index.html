@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" ng-app="eventsApp">
+<head>
+    <meta charset="utf-8">
+    <title>Event Registration</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/app.css"/>
+</head>
+<body>
+<div class="container">
+    <div class="navbar" ng-controller="MainMenuController">
+        <div class="navbar-inner">
+            <ul class="nav">
+                <li><a href="/events">Events</a></li>
+                <li><a href="/events/new">Create Event</a></li>
+            </ul>
+            <ul class="nav pull-right" ng-hide="isAuthenticated()">
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
+            </ul>
+            <ul class="nav pull-right" ng-show="isAuthenticated()">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{user.name}}</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/editProfile">Edit Profile</a></li>
+                        <li><a href="#" ng-click="logout()">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div ng-view style="padding-left:20px; padding-right:20px"></div>
+</div>
+
+
+<script src="/lib/jquery.min.js"></script>
+<script src="/lib/angular/angular.js"></script>
+<script src="/lib/angular/angular-resource.min.js"></script>
+<script src="/lib/angular/angular-route.min.js"></script>
+<script src="/lib/underscore-1.4.4.min.js"></script>
+<script src="/js/app.js"></script>
+<script src="/js/services/authentication.js"></script>
+<script src="/js/services/calendarHelper.js"></script>
+<script src="/js/services/eventData.js"></script>
+<script src="/js/services/eventResource.js"></script>
+<script src="/js/services/gravatarUrlBuilder.js"></script>
+<script src="/js/services/userData.js"></script>
+<script src="/js/services/userResource.js"></script>
+<script src="/js/services/calendarHelper.js"></script>
+<script src="/js/controllers/EditEventController.js"></script>
+<script src="/js/controllers/EditProfileController.js"></script>
+<script src="/js/controllers/EditSessionController.js"></script>
+<script src="/js/controllers/EventController.js"></script>
+<script src="/js/controllers/EventListController.js"></script>
+<script src="/js/controllers/LoginController.js"></script>
+<script src="/js/controllers/MainMenuController.js"></script>
+<script src="/js/controllers/ViewProfileController.js"></script>
+<script src="/js/directives/datePicker.js"></script>
+<script src="/js/directives/enterTarget.js"></script>
+<script src="/js/directives/eventDetails.js"></script>
+<script src="/js/directives/eventThumbnail.js"></script>
+<script src="/js/directives/focus.js"></script>
+<script src="/js/directives/gravatar.js"></script>
+<script src="/js/directives/ngBlur.js"></script>
+<script src="/js/directives/ngFocus.js"></script>
+<script src="/js/directives/sessionThumbnail.js"></script>
+<script src="/js/directives/upvote.js"></script>
+<script src="/js/filters.js"></script>
+<script src="/lib/bootstrap.min.js"></script>
+
+</body>
+</html>

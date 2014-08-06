@@ -1,0 +1,28 @@
+<div class="calendar no-select">
+    <div class="row">
+        <div class="calendar-nav-left pointer" ng-click="previousYear()"><i class="icon-chevron-left icon-white"></i></div>
+        <div class="calendar-hdr">
+            {{calendar.year}}
+        </div>
+        <div class="calendar-nav-right pointer" ng-click="nextYear()"><i class="icon-chevron-right icon-white"></i></div>
+    </div>
+    <div class="row">
+        <div class="calendar-nav-left pointer" ng-click="previousMonth()"><i class="icon-chevron-left icon-white"></i></div>
+        <div class="calendar-hdr">
+            {{calendar.monthName}}
+        </div>
+        <div class="calendar-nav-right pointer" ng-click="nextMonth()"><i class="icon-chevron-right icon-white"></i></div>
+    </div>
+    <div class="row">
+        <div>Sun</div>
+        <div>Mon</div>
+        <div>Tue</div>
+        <div>Wed</div>
+        <div>Thu</div>
+        <div>Fri</div>
+        <div>Sat</div>
+    </div>
+    <div class="row">
+        <div class="pointer" ng-repeat="day in days" ng-click="selectDate(day)">{{day}}</div>
+    </div>
+</div>
